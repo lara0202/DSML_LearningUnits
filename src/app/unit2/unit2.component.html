@@ -1,0 +1,161 @@
+<ul class="nav nav-pills pt-3 justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'lernziele'" [class.active]="visible === 'lernziele'">Lernziele</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'grundlagen'" [class.active]="visible === 'grundlagen'">Theoretische Grundlagen</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'aufgabe'" [class.active]="visible === 'aufgabe'">Aufgabe</a>
+    </li>
+</ul>
+
+<div class="container p-5">
+    <div *ngIf="visible === 'lernziele'">
+        <h2>Lernziele</h2><br/>
+        <p>Die Studierenden können...</p>
+        <ul>
+            <li>den Zweck eines Metamodells im Modellierungskontext erklären</li>
+            <li>die vier Instanzebenen (M0–M3) benennen und deren Beziehungen analysieren</li>
+            <li>die Rolle einer Metamodellierungssprache für die Spezifikation von Metamodellen erläutern</li>
+            <li>die Begriffe Meta-Class, Meta-Attribute und Meta-Associations definieren und deren Funktion im Kontext einer Metamodellierungssprache beschreiben</li>
+            <li>den hierarchischen Zusammenhang zwischen M3, M2, M1 und M0 erklären, wie jede Ebene von der darüberliegenden abhängig ist</li>
+        </ul>
+        <p>Viel Erfolg!</p>
+    </div>
+    <div *ngIf="visible === 'grundlagen'">
+        <h2>Theoretische Grundlagen</h2><br/>
+        <p>Metamodellierung stellt das Fundament für DSMLs dar. Sie gibt die Regeln, Konzepte und Strukturen für diese, auf einer höheren Abstraktionsebene, vor, somit ermöglicht sie es die Elemente dieser Sprache formal, eindeutig und (toolunterstützend) zu spezifizieren. Ohne eine solche Metastruktur wäre eine konsistente und widerspruchsfreie Anwendung eines Modells nicht möglich. Ein präzises Metamodell erleichtert somit die Fehlerprävention, indem es ungültige oder unvollständige Modelle bereits bei der Erstellung unterbindet. So werden Fehler frühzeitig erkannt oder gänzlich verhindert, was die Qualität der resultierenden Systeme steigert.</p>
+        <p>Die Metamodellierung besteht aus vier hierarchisch angeordneten Ebenen:</p>
+        <p>Auf der M3 Ebene befindet sich die Metamodelling Language, die Sprache zum Bauen von Sprachen. Sie definiert die Mittel, mit denen die abstrakte Syntax in einem Metamodell auf der M2 Ebene festgelegt werden kann. </p>
+        <p>Eine MML besteht aus verschieden Elementen:</p>
+        <ul>
+            <li>Meta-Class: Abstrakte Bausteine, aus denen die Konstrukte der M2-Ebene gebildet werden, also legt sie fest welche Arten von Elementen genutzt werden dürfen.  Beispiele für MetaClass wären Class (für Entitäten), Attribute (für Eigenschaften), Association (für Beziehungen), DataType (für Datentypen).</li>
+            <li>Meta-Attribute: Eigenschaften von MetaClass und für jede Instanz auf der M2 Ebene relevant sind. Beispiele hierfür sind beispielsweise name (des Attributes auf M2) : String, type : DataType</li>
+            <li>Meta-Associations: Geben an wie Metaklassen miteinander verknüpft werden können oder müssen. Die Meta-Class „Class“ ist mit der „Attribute“ mit einer „hat“ Verknüpfung verbunden, und zwar so, dass eine Class mehrere Attribute haben kann</li>
+        </ul>
+        <p>Diese werden benötigt, um Konstrukte des Modells auf der M2 Ebene, ihre Kombinationsregeln sowie deren Semantik festzulegen, sodass modellbasierte Werkzeuge die später erstellten Modelle korrekt interpretieren können. Diese Ebene ist somit essenziell für die Entwicklung von DSMLs.</p>
+        <p>Die M2 Ebene enthält das Metamodell, also die DSML, und legt damit die abstrakte Syntax dieser Sprache fest. Sie definiert, welche Elemente in einem Modell vorhanden sein dürfen, welche Eigenschaften diese besitzen und wie sie zueinander in Beziehung stehen können. Zusätzlich können auf dieser Ebene Regeln (Constraints) formuliert werden, um die Konsistenz und Widerspruchfreiheit der Modelle sicherzustellen.</p>
+        <p>Die M1 Ebene beinhaltet die konkreten Modelle, die mithilfe der auf der M2-Ebene definierten Modellierungssprache erstellt werden. Die Modelle sind domänenspezifisch und bilden Strukturen, Prozesse oder Systeme ab, wobei sie die im Metamodell festgelegten Elemente, Eigenschaften und Beziehungen umsetzen. Die auf der M2 Ebene festgelegten Syntax- und Konsistenzregeln stellen sicher, dass die Modelle korrekt und widerspruchsfrei sind. Auf dieser Ebene findet somit die konkrete Modellierung statt, somit werden die abstrakten Konzepte und Einschränkungen mit inhaltlichen Daten gefüllt, um reale Szenarien abzubilden.</p>
+        <p>Die M0 Ebene umfasst konkrete Instanzen, Objekte oder Ereignisse aus der realen Welt, die den auf M1 definierten Modellen entsprechen. Jedes Modell auf dieser Ebene ist eine Umsetzung der in M1 spezifizierten Strukturen oder Prozesse und besitzt konkrete Werte für alle im Modell vorgesehenen Attribute. Somit enthält diese Ebene reale Ausprägungen der modellierten Elemente einschließlich ihrer physischen Eigenschaften und tatsächlichen Beziehungen, wie sie in der beobachtbaren Realität vorkommen.</p>
+        <p>Zur Veranschaulichung der Metamodellierung ziehen wir eine Alltagsmetapher als Beispiel hinzu. In einem Modellierungsprozess eines Autos, würde die Metamodellierungssprache auf der M3-Ebene festlegen, dass wir in der darunterliegenden Ebene, Entitäten selbst erstellen können, welche Attribute haben und miteinander in Beziehung stehen. Auf der M2-Ebene wird darauf aufbauend ein Metamodell für eine spezifische Fahrzeugklasse, wie einem Kleinwagen, definiert.</p>
+        <p>Dieses gibt vor, dass ein Wagen dieser Klasse einen Motor, eine Karosserie, vier Räder aber auch Eigenschaften wie eine Farbe, Motorleistung und Gewicht besitzt. Der Bauplan eines konkreten Modells, wie einem VW Golf 8, entsteht auf der M1-Ebene. Das Abbild der Realität erhält inhaltliche Details wie, eine Motorleistung von 110 kW, die Farbe Blau und vier 17-Zoll Felgen. Das reale Auto wird befindet sich dann auf der Ebene M0. Es handelt sich hierbei um ein tatsächliches Auto, welches sich in jemandes Besitz befinden könnte.</p>
+    </div>
+    <div *ngIf="visible === 'aufgabe'">
+        <h2>Aufgabe</h2><br/>
+        
+        <p>1. Welche Aussage beschreibt die Funktion der M3-Ebene am besten?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe1" id="A1O1" value="A1O1">
+        <label class="form-check-label" for="A1O1">Sie enthält konkrete Modelle für eine spezifische Domäne.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe1" id="A1O2" value="A1O2">
+        <label class="form-check-label" for="A1O2">Sie definiert die Bausteine und Regeln, um Metamodelle zu erstellen.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe1" id="A1O3" value="A1O3">
+        <label class="form-check-label" for="A1O3">Sie beschreibt reale Objekte in der physischen Welt.</label>
+        </div>
+        <div id="feedback1" class="alert" role="alert"></div>
+
+        <p>2. Welche der folgenden Komponenten gehört nicht zu einer Metamodellierungssprache (MML)?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe2" id="A2O1" value="A2O1">
+        <label class="form-check-label" for="A2O1">Meta-Class</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe2" id="A2O2" value="A2O2">
+        <label class="form-check-label" for="A2O2">Meta-Attribute</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe2" id="A2O3" value="A2O3">
+        <label class="form-check-label" for="A2O3">Instanzen aus der realen Welt</label>
+        </div>
+        <div id="feedback2" class="alert" role="alert"></div>
+
+        <p>3. Was ist auf der M2-Ebene enthalten?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe3" id="A3O1" value="A3O1">
+        <label class="form-check-label" for="A3O1">Das Metamodell bzw. die DSML</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe3" id="A3O2" value="A3O2">
+        <label class="form-check-label" for="A3O2">Die reale Umsetzung der Modelle</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe3" id="A3O3" value="A3O3">
+        <label class="form-check-label" for="A3O3">Die abstrakten Bausteine für Metamodelle</label>
+        </div>
+        <div id="feedback3" class="alert" role="alert"></div>
+
+        <p>4. Welches Beispiel gehört zur M1-Ebene im Auto-Beispiel?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe4" id="A4O1" value="A4O1">
+        <label class="form-check-label" for="A4O1">Bauplan für den VW Golf 8 </label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe4" id="A4O2" value="A4O2">
+        <label class="form-check-label" for="A4O2">Tatsächlich produzierter VW Golf 8</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe4" id="A4O3" value="A4O3">
+        <label class="form-check-label" for="A4O3">Kategorie „Bauteil“ mit Attribut „Gewicht“</label>
+        </div>
+        <div id="feedback4" class="alert" role="alert"></div>
+
+        <p>5. Was beschreibt der Begriff Meta-Attribute in einer Metamodellierungssprache?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe5" id="A5O1" value="A5O1">
+        <label class="form-check-label" for="A5O1">Eigenschaften von Instanzen auf M1</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe5" id="A5O2" value="A5O2">
+        <label class="form-check-label" for="A5O2">Eigenschaften von Meta-Klassen, die für Instanzen auf M2 relevant sind</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe5" id="A5O3" value="A5O3">
+        <label class="form-check-label" for="A5O3">Beziehungen zwischen Elementen einer DSML</label>
+        </div>
+        <div id="feedback5" class="alert" role="alert"></div>
+
+        <p>6. Welche der folgenden Aussagen trifft auf die M0-Ebene zu?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe6" id="A6O1" value="A6O1">
+        <label class="form-check-label" for="A6O1">Sie enthält das Metamodell für eine DSML.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe6" id="A6O2" value="A6O2">
+        <label class="form-check-label" for="A6O2">Sie umfasst reale Ausprägungen der modellierten Elemente.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe6" id="A6O3" value="A6O3">
+        <label class="form-check-label" for="A6O3">Sie legt die abstrakte Syntax einer Sprache fest.</label>
+        </div>
+        <div id="feedback6" class="alert" role="alert"></div>
+
+        <p>7. Die M0-Ebene enthält die abstrakte Syntax einer Modellierungssprache.</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe7" id="A7O1" value="A7O1">
+        <label class="form-check-label" for="A7O1">Richtig</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe7" id="A7O2" value="A7O2">
+        <label class="form-check-label" for="A7O2">Falsch</label>
+        </div>
+        <div id="feedback7" class="alert" role="alert"></div>
+
+        <p>8. Die Konsistenz eines Modells auf M1 kann auch dann gewährleistet werden, wenn das zugrunde liegende Metamodell auf M2 unvollständig definiert ist.</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe8" id="A8O1" value="A8O1">
+        <label class="form-check-label" for="A8O1">Richtig</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe8" id="A8O2" value="A8O2">
+        <label class="form-check-label" for="A8O2">Falsch</label>
+        </div>
+        <div id="feedback8" class="alert" role="alert"></div>
+
+        <button class="btn btn-primary" (click)="checkTest()">Prüfen</button>
+    </div>
+</div>

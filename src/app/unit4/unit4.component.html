@@ -1,0 +1,84 @@
+<ul class="nav nav-pills pt-3 justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'lernziele'" [class.active]="visible === 'lernziele'">Lernziele</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'grundlagen'" [class.active]="visible === 'grundlagen'">Theoretische Grundlagen</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'aufgabe'" [class.active]="visible === 'aufgabe'">Aufgabe</a>
+    </li>
+</ul>
+
+<div class="container p-5">
+    <div *ngIf="visible === 'lernziele'">
+        <h2>Lernziele</h2><br/>
+        <p>Die Studierenden können...</p>
+        <ul>
+            <li>die Unterschiede der Spezifikationsstile (Constraints vs. Abstrakte Syntax) beschreiben</li>
+            <li>die Eignung von Begriffen für die Aufnahme in eine DSML beurteilen</li>
+            <li>ein erweitertes Glossar zu einer vorgegebenen Domäne selbstständig erstellen</li>
+            <li>ein vollständiges Konzeptwörterbuch zu einer Beispiel-DSML, inklusive Typ-/Instanz-Attributen und semantischen Erläuterungen entwickeln</li>
+        </ul>
+        <p>Viel Erfolg!</p>
+    </div>
+    <div *ngIf="visible === 'grundlagen'">
+        <h2>Theoretische Grundlagen</h2><br/>
+
+        <p>Die Spezifikation der Sprachkonzepte und Semantik ist der zentrale Bestandteil beim Design einer DSML. Die Abbildung veranschaulicht die einzelnen Schritte des Mikroprozesses der Sprachspezifikation.</p>
+        <img src="assets/Phase4.png" alt="DSML Spezifikation Prozess" width="500px"><br/><br/>
+        <h4>Vorgehen Mikroprozess und Begriffserklärungen</h4>
+        <p><b>Grundlegendes Glossar erstellen:</b> Sammlung domänenspezifischer Begriffe und natürlichsprachlicher Beschreibungen dieser Begriffe.</p>
+        <p><b>Erweitertes Glossar erstellen:</b> Es muss entschieden werden, ob ein Begriff als Teil der DSML konstruiert oder mit der DSML spezifiziert werden sollte. Zur Unterstützung dieser Entscheidung werden die Begriffe anhand folgender Kriterien bewertet:</p>
+        <ul>
+            <li><b>Invarianz der Semantik:</b> Ein Konzept wird nur dann in die DSML aufgenommen, wenn seine Semantik innerhalb des gesamten Anwendungsbereichs der Sprache gleichbleibend ist.</li>
+            <li><b>Relevanz:</b> Es sollen keine unnötigen Konzepte in die DSML aufgenommen werden, sondern nur solche Begriffe, die Schlüsselbegriffe für die Beschreibung der Organisationsstruktur sind.</li>
+            <li><b>Varianz der Typsemantik:</b> Die Semantik der Typen sollte unterschiedlich sein – sonst macht es keinen Sinn, davon verschiedene Instanzen zu erstellen.</li>
+            <li><b>Intuitivität für die Nutzer:</b> Es sollte geprüft werden, ob mögliche Instanzen intuitiv als Typen wahrgenommen werden.</li>
+        </ul>
+        <p>Nach der Bewertung der gesammelten Begriffe wird für jeden Begriff entschieden, ob er in die DSML aufgenommen werden soll. Dieser Schritt führt zu einer überarbeiteten Version des erweiterten Glossars.</p>
+        <p><b>Konzeptwörterbuch erstellen:</b> Das Konzeptwörterbuch kann nach der Erstellung des überarbeiteten erweiterten Glossars und bevor die Sprache mit einem Metamodell spezifiziert wird, erstellt werden. Es erfüllt zwei Hauptzwecke:</p>
+        <ol>
+            <li>Es soll die Konstruktion des Metamodells vorbereiten</li>
+            <li>Es dient als Dokumentation der im Metamodell spezifizierten Begriffe</li>
+        </ol>
+        <p><b>Inhalt und Struktur des Konzeptwörterbuchs:</b> Die Struktur eines Konzeptwörterbuchs reflektiert spezifische Designentscheidungen, die beim Aufbau von Metamodellen getroffen werden müssen. Es stellt nicht nur die Sammlung von Attributen und Assoziationen dar, die für die Spezifikation eines Konzepts erforderlich sind, sondern schlägt auch eine Struktur für eine ausführlichere Beschreibung vor. Attribute werden dabei in zwei Gruppen unterteilt:</p>
+        <ul>
+            <li><b>Attribute auf der Typebene:</b> Beschreiben charakteristische Merkmale eines Typs, die unabhängig von seinen eigenen Instanzen sind.</li>
+            <li><b>Attribute mit Referenzen auf die Instanzebene:</b> Dienen dazu, Attribute eines Typs zu gruppieren, die nur unter Berücksichtigung ihrer Instanzen initialisiert werden können (z.B. "averageNumberOfInstances" für einen Prozesstyp).</li>
+        </ul>
+        <p>Die Erstellung und Pflege eines Konzeptwörterbuchs kann einen erheblichen Aufwand erfordern, insbesondere die Synchronisierung mit dem Glossar und dem Metamodell, wofür idealerweise ein Tool zur Synchronisierung vorhanden sein sollte.</p>
+        <p><b>Auswahl einer Metamodellierungssprache:</b> Dies ist ein optionaler Schritt, da eine bestimmte Metamodellierungssprache oft durch Toolvorgaben bereits vorgegeben ist.</p>
+        <p><b>Entwurf des Metamodells:</b> Beim Entwurf eines Metamodells gibt es oft konkurrierende Designziele. Einige Designer bevorzugen es, so viel wie möglich von der Semantik einer DSML durch die abstrakte Syntax zu spezifizieren, während andere dazu neigen, die abstrakte Syntax einfach zu halten und die Semantik mit zusätzlichen Constraints darzustellen.</p>
+        <ol>
+            <li><b>Betonung der abstrakten Syntax:</b> Führt zu komplexeren Metamodellen mit weniger expliziten Constraints. Die Korrektheit größerer Teile eines Modells kann auf der Klassenebene überprüft werden. Allerdings wird die Integrität gefährdet, wenn "Typen" durch Instanzzustände spezifiziert werden, da dies zu Class Migration führen kann, was kostspielig und riskant ist.</li>
+            <li><b>Betonung zusätzlicher Constraints:</b> Hält das Metamodell einfacher. Delegiert jedoch mehr Verantwortung an Programmierer, da Constraints gegen bestimmte Instanzzustände implementiert und überprüft werden müssen. Außerdem kann die Lesbarkeit eines Metamodells durch eine große Anzahl formaler Constraints beeinträchtigt werden.</li>
+        </ol>
+        <p>Die Wahl eines bestimmten Spezifikationsstils ist oft eine Frage subjektiver Präferenzen.</p>
+        <p><b>Beispiel: Unterschiedliche Spezifikationsstile</b></p>
+        <img src="assets/Spezifikationsstile.png" alt="Spezifikationsstile" width="500px"><br/><br/>
+        <ul>
+            <li>Variante 1: Mit zusätzlichen Constraints<br/>
+                Wie in der Grafik ersichtlich, hat die Klasse „Prozess“ ein Attribut „type“ mit den Werten „manuell, semi, automatisch“. Mit OCL-Constraints wird hier definiert, dass manuelle Prozesse keine Software benötigen dürfen.</li>
+            <li>Variante 2: Mit abstrakter Syntax<br/>
+                Statt eines Attributs „type“ gibt es eigene Subtypen: Manueller Prozess, Semi-automatischer Prozess etc. Die Beziehungen (z.B. zur Software) sind direkt in der Struktur verankert.</li>
+        </ul>
+        <p><b>Evaluierung und Verfeinerung des Metamodells:</b> Nach Abschluss der Metamodellspezifikation ist eine intensive und gründliche Evaluierung unerlässlich.</p>
+        <p>Dafür gibt es 2 Hauptgründe:</p>
+        <ul>
+            <li>Metamodelle können versteckte Probleme haben: zum Beispiel durch feine Unterschieden in den Abstraktionsebenen, durch vernachlässigte Modellierungsszenarien oder durch unangemessene Constraints.</li>
+            <li>Zudem sollte eine Sprachspezifikation so stabil wie möglich sein, da spätere Änderungen in der Regel kostspielige Anpassungen von Modellen und Tools zur Folge haben.</li>
+        </ul>
+        <p>Die Evaluierung eines Metamodells ist schwierig, da es nicht direkt gegen Zieldomänensprachen getestet werden kann. Das liegt daran, dass ein Metamodell vorgibt, wie die Zieldomäne strukturiert sein sollte. Dabei können seine Konzepte bewusst von bestehenden technischen Konzepten abweichen, um für bestimmte Zwecke überlegen zu sein.</p>
+        <p>Gleichzeitig sollten sie aber den Begriffen entsprechen, mit denen die potenziellen Nutzer vertraut sind, um die Verständlichkeit und Benutzerfreundlichkeit zu fördern. Diese widersprüchlichen Ziele sind ein Grund, warum ein einfacher Vergleich mit einer bestehenden Terminologie oft nicht ausreicht.</p>
+
+    </div>
+    <div *ngIf="visible === 'aufgabe'">
+        <h2>Aufgabe</h2><br/>
+        <p>Bei dem nachfolgenden Metamodell wurde die Semantik durch einen Constraint dargestellt.</p>
+        <img src="assets/Aufgabe.png" alt="Aufgabe" width="600px"><br/><br/>
+        <p>Erstelle ein neues Metamodell auf M2 im XModeler, dass die zeitliche Überschneidung von Meetings im selben Raum allein durch die Modellstruktur ausgeschlossen wird – ohne einen zusätzlichen Constraint zu verwenden (Spezifikationsstil: Betonung der abstrakten Syntax).</p>
+        <button class="btn btn-primary" (click)="showSolution()">Referenzlösung</button><br/><br/>
+        <img id="solution" class="invisible" src="assets/Lösung.png" alt="Lösung" width="600px"><br/><br/>
+    </div>
+</div>

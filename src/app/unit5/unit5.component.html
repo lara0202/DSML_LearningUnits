@@ -1,0 +1,114 @@
+<ul class="nav nav-pills pt-3 justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'lernziele'" [class.active]="visible === 'lernziele'">Lernziele</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'grundlagen'" [class.active]="visible === 'grundlagen'">Theoretische Grundlagen</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'aufgabe'" [class.active]="visible === 'aufgabe'">Aufgabe</a>
+    </li>
+</ul>
+
+<div class="container p-5">
+    <div *ngIf="visible === 'lernziele'">
+        <h2>Lernziele</h2><br/>
+        <p>Die Studierenden können...</p>
+        <ul>
+            <li>die Bedeutung einer grafischen Notation für eine DSML erläutern</li>
+            <li>Ausgangspunkte für die Ableitung grafischer Notationen schildern</li>
+            <li>zentrale Guidelines grafischer Notationsgestaltung anwenden</li>
+            <li>Herausforderungen bei der Notationsgestaltung benennen</li>
+        </ul>
+        <p>Viel Erfolg!</p>
+    </div>
+    <div *ngIf="visible === 'grundlagen'">
+        <h2>Theoretische Grundlagen</h2><br/>
+        <p><b>Relevanz grafischer Notationen</b></p>
+        <p>Eine grafische Notation ist entscheidend für die Verständlichkeit und Produktivität domänenspezifischer Modellierungssprachen (DSMLs). Die visuelle Darstellung ist für die Akzeptanz und Benutzerfreundlichkeit einer Sprache sehr wichtig, da anfängliches Feedback sich oft auf das Aussehen konzentriert. Grafische Modelle erleichtern das Erkennen von Mustern durch Menschen, während Text besser für Computer geeignet ist. Die Erstellung von Modellen wird vereinfacht und die Kommunikation mit Domänenexperten und Kunden verbessert. Notationen können die Komplexität reduzieren und besser skalieren als reiner Text, indem sie unterschiedliche Detailebenen oder Ansichten bieten.</p>
+        <p><b>Ausgangspunkte für Notationen</b></p>
+        <p>Die Notationsdefinition sollte erst erfolgen, nachdem die Modellierungskonzepte identifiziert wurden. Notationen sollten direkt aus der Problemdomäne abgeleitet werden. Zum Beispiel aus UI-Elementen oder physischen Strukturen. Die Notation kann auch auf vorhandenen, etablierten Zeichen und Symbolen basieren (z.B. Verkehrsschilder, Währungssymbole). Verschiedene Benutzerrollen können unterschiedliche Ansichten oder Sprachen erfordern, die durch die Notation unterstützt werden sollten. Es ist ratsam, mit einfachen Formen zu beginnen und diese im iterativen Prozess zu verfeinern.</p>
+        <p><b>Guidelines</b></p>
+        <ol>
+            <li><b>Semantische Kategorien bilden:</b> Konzepte in klare, intuitiv unterscheidbare Kategorien gruppieren.</li>
+            <li><b>Generische Symbole erstellen:</b> Für jede Kategorie ein generisches Symbol schaffen, dessen Variationen Konzepte innerhalb der Kategorie darstellen und das auf den ersten Blick unterscheidbar ist.</li>
+            <li><b>Visueller Unterschied:</b> Je größer der semantische Unterschied zwischen zwei Konzepten, desto größer sollte der grafische Unterschied ihrer Symbole sein ("visueller Abstand").</li>
+            <li><b>Icons bevorzugen:</b> Icons schaffen einen besseren Bezug zum dargestellten Konzept als einfache geometrische Formen und verbessern die intuitive Verständlichkeit.</li>
+            <li><b>Form, Farbe und Text kombinieren:</b>
+                <ul>
+                    <li>Formen (oder Icons) für semantische Kategorien verwenden.</li>
+                    <li>Farbe als zusätzlichen Unterscheider oder zur Ausdruck zusätzlicher Bedeutung nutzen (z.B. Präferenzen, architektonische Rollen wie MVC).</li>
+                    <li>Text ist wichtig, wenn die Konzeptvielfalt zu groß für Symbole ist oder zur Benennung von Konzepten.</li>
+                </ul>
+            </li>
+            <li><b>Eindeutigkeit sicherstellen:</b> Ein Symbol sollte klar einem einzigen Modellierungskonzept zugeordnet sein. Eine Mehrfachbelegung von Symbolen würde zu Verwirrung führen (Symbol Overload).</li>
+            <li><b>Redundanzen vermeiden:</b> Alternative Symbole für dasselbe Konzept sollten vermieden werden.</li>
+            <li><b>Monotone semantische Merkmale:</b> Grundsymbol mit kleinen Zusatzsymbolen kombinieren, um spezifischere Bedeutungen auszudrücken.</li>
+            <li><b>Diagrammkomplexität reduzieren:</b> Symbole für Kompositionen oder zur Darstellung identischer Diagrammteile verwenden, um die visuelle Komplexität zu senken (z.B. Symbol für aggregierten Prozess).</li>
+        </ol>
+        <p><b>Herausforderungen bei der Notationsgestaltung</b></p>
+        <p>Die Gestaltung grafischer Notationen steht vor einer Reihe von Herausforderungen. So fehlt es bislang an einer soliden theoretischen Grundlage, auf die sich die Entwicklung stützen könnte. Hinzu kommen Expertendifferenzen: Sprachexperten konzentrieren sich vor allem auf Semantik und abstrakte Syntax, verfügen jedoch oft nicht über das notwendige Wissen zur grafischen Gestaltung, während Grafikdesigner den Zweck einer domänenspezifischen Modellierungssprache (DSML) nicht immer vollständig erfassen. Auch die Benutzerakzeptanz kann ein Hindernis darstellen, da Nutzer mit neuen DSMLs häufig nicht vertraut sind und sich zu Beginn stark auf deren äußere Gestaltung fokussieren, was die Einführung erschwert.</p>
+        <p>Eine weitere Herausforderung ist der Ausgleich zwischen Klarheit und Detailtiefe: Diagramme müssen genügend Informationen enthalten, ohne dabei überladen zu wirken oder an Verständlichkeit zu verlieren. Die Sicherstellung von Konsistenz zwischen ähnlichen Konzepten und über verschiedene Abstraktionsebenen hinweg ist dabei wichtig. Außerdem existiert nur eine begrenzte Werkzeugunterstützung. Viele Tools bieten nur eingeschränkte Möglichkeiten zur Symbolgestaltung, etwa durch fehlende Symbol-Editoren, limitierte Symbolformen oder unzureichende Textdarstellung auf Linien.</p>
+        <p>Die Notationsgestaltung erfordert in der Praxis meist einen inkrementellen, testgetriebenen Prozess, der mehrere Iterationen durchläuft. Schließlich ist die aktive Zusammenarbeit mit Domänenexperten, zukünftigen Nutzern und gegebenenfalls professionellen Grafikdesignern entscheidend für den Erfolg, bringt jedoch auch zusätzlichen Koordinationsaufwand mit sich.</p>
+    </div>
+    <div *ngIf="visible === 'aufgabe'">
+        <h2>Aufgabe</h2><br/>
+        <p>Im Folgenden findest du Beispiele grafischer Notationen, die nicht optimal sind. Nenne jeweils die Nummer der Guideline, die nicht beachtet wurde und begründe kurz deine Antwort.</p>
+        <p>1.</p>
+        <div class="d-flex align-items-start gap-3">
+            <img src="assets/Eindeutigkeit.png" alt="A1" width="300px">
+            <div>
+                <p>Guideline:</p>
+                <input type="number" class="form-control mb-3" min="1" max="9">
+                <p>Begründung:</p>
+                <textarea class="form-control" rows="4"></textarea>
+            </div>
+        </div>
+        <div id="feedback1" class="alert" role="alert"></div>
+        <p>2.</p>
+        <div class="d-flex align-items-start gap-3">
+            <img src="assets/Icons.png" alt="A1" width="300px">
+            <div>
+                <p>Guideline:</p>
+                <input type="number" class="form-control mb-3" min="1" max="9">
+                <p>Begründung:</p>
+                <textarea class="form-control" rows="4"></textarea>
+            </div>
+        </div>
+        <div id="feedback2" class="alert" role="alert"></div>
+        <p>3.</p>
+        <div class="d-flex align-items-start gap-3">
+            <img src="assets/Unterschied.png" alt="A1" width="300px">
+            <div>
+                <p>Guideline:</p>
+                <input type="number" class="form-control mb-3" min="1" max="9">
+                <p>Begründung:</p>
+                <textarea class="form-control" rows="4"></textarea>
+            </div>
+        </div>
+        <div id="feedback3" class="alert" role="alert"></div>
+        <p>4.</p>
+        <div class="d-flex align-items-start gap-3">
+            <img src="assets/FarbeFormText.png" alt="A1" width="300px">
+            <div>
+                <p>Guideline:</p>
+                <input type="number" class="form-control mb-3" min="1" max="9">
+                <p>Begründung:</p>
+                <textarea class="form-control" rows="4"></textarea>
+            </div>
+        </div>
+        <div id="feedback4" class="alert" role="alert"></div>
+        <p>5.</p>
+        <div class="d-flex align-items-start gap-3">
+            <img src="assets/Redundanz.png" alt="A1" width="300px">
+            <div>
+                <p>Guideline:</p>
+                <input type="number" class="form-control mb-3" min="1" max="9">
+                <p>Begründung:</p>
+                <textarea class="form-control" rows="4"></textarea>
+            </div>
+        </div>
+        <div id="feedback5" class="alert" role="alert"></div><br/>
+        <button class="btn btn-primary" (click)="checkAnswers()">Prüfen</button>
+    </div>
+</div>

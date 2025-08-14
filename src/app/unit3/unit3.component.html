@@ -1,0 +1,126 @@
+<ul class="nav nav-pills pt-3 justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'lernziele'" [class.active]="visible === 'lernziele'">Lernziele</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'grundlagen'" [class.active]="visible === 'grundlagen'">Theoretische Grundlagen</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'aufgabe'" [class.active]="visible === 'aufgabe'">Aufgabe</a>
+    </li>
+</ul>
+
+<div class="container p-5">
+    <div *ngIf="visible === 'lernziele'">
+        <h2>Lernziele</h2><br/>
+        <p>Die Studierenden können...</p>
+        <ul>
+            <li>erläutern, warum Iteration und Feedbackschleifen im Entwicklungsprozess einer DSML eine zentrale Rolle spielen</li>
+            <li>zentrale Rollen und Risiken der sechs Phasen des DSML-Entwicklungsprozesses korrekt zuordnen</li>
+            <li>Ziele, Ergebnisse und Inhalte der Mikroprozesse in den Makrophasen voneinander differenzieren und bestimmen welche Aufgaben in welcher Phase durchzuführen sind</li>
+        </ul>
+        <p>Viel Erfolg!</p>
+    </div>
+    <div *ngIf="visible === 'grundlagen'">
+        <h2>Theoretische Grundlagen</h2><br/>
+        <p>Die Entwicklung einer DSML ist eine anspruchsvolle Aufgabe, die kreative Abstraktion, methodisches Vorgehen und enge Zusammenarbeit verschiedener Rollen erfordert. Prozessmodelle dienen dabei nicht als starre Vorgabe, sondern als flexible Orientierung, die Iteration und Feedback erlaubt um Anforderungen anzupassen, Fehler frühzeitig zu erkennen und die Qualität der Sprache zu sichern. Da es bislang kaum umfassende methodische Unterstützung gab, stellt die Vorgehensweise von Ulrich Frank einen wichtigen Beitrag dar. Sie bietet einen strukturierten und praxisnahen Entwicklungsrahmen. Grundlage bildet der Makro- und Mikrozprozesses und ein Rollenmodell mit klaren Zuständigkeiten, darunter Domänenexperten, Business Analysten, Sprachdesigner, Tool-Experten, Benutzer und Grafikdesigner.</p>
+
+        <b>1. Klärung von Umfang und Zweck (Clarification of Scope and Purpose)</b>
+        <p><i>Ziele:</i> Die Phase soll eine Beschreibung der wesentlichen Designziele und eine Definition des Budgets liefern.<br/>
+            <i>Mikroprozess:</i> Es werden Modellierungsaufgaben identifiziert, potenzielle wirtschaftliche Vorteile der DSML bewertet und deren Machbarkeit beurteilt, oft unter Berücksichtigung früherer Projekte.<br/>
+            <i>Rollen:</i> Manager, Business Analyst, Benutzer, Domänenexperte und Sprachdesigner.<br/>
+            <i>Risiken:</i> Mangelnde Informationen und unzureichendes Wissen können zu einer unangemessenen Abgrenzung des DSML-Umfangs und einer irreführenden Bewertung der Vorteile führen.<br/>
+            <i>Ergebnisse:</i> Vorläufiger Projektplan, Budget zumindest für die erste Projektphase, Zuordnung von Personal (einschließlich externer Dienstleister) für die erste Phase, sowie eine Skizze der Langzeitperspektive
+        </p>
+
+        <b>2. Analyse generischer Anforderungen (Analysis of Generic Requirements)</b>
+        <p><i>Ziele:</i> Generische Anforderungen sollen spezifiziert und umfassend dokumentiert werden.<br/>
+            <i>Mikroprozess:</i> Verfügbare Kataloge generischer Anforderungen werden analysiert, wobei ein besonderer Fokus auf die Begründung jeder Anforderung gelegt wird, da das Feld noch nicht ausgereift ist.<br/>
+            <i>Rollen:</i> Domänenexperte, Benutzer, Sprachdesigner und Tool-Experte.<br/>
+            <i>Risiken:</i>: Ohne einen geeigneten Katalog ist die Entwicklung generischer Anforderungen aufwendig und birgt das Risiko, wesentliche Aspekte zu übersehen.<br/>
+            <i>Ergebnisse:</i> Katalog generischer Anforderungen, wobei jede Anforderung mit Bezug zum Zweck der DSML beschrieben und begründet sowie hinsichtlich ihrer Relevanz charakterisiert sein sollte.
+        </p>
+
+        <b>3. Analyse spezifischer Anforderungen (Analysis of Specific Requirements)</b>
+        <p><i>Ziele:</i> Eine umfassende Liste spezifischer Anforderungen soll entwickelt werden.<br/>
+            <i>Mikroprozess:</i> Durch die Entwicklung von Anwendungs-Szenarien und dem Entwurf vorläufiger Diagramme wird eine klare Vorstellung der DSML-Erwartungen vermittelt und Anforderungen abgeleitet.<br/>
+            <i>Rollen:</i> Business Analyst, Domänenexperte, Sprachdesigner, Manager, Tool-Experte und Benutzer, optional ein Grafikdesigner.<br/>
+            <i>Risiken:</i> Wenn allen Teilnehmern der Hintergrund im Umgang mit DSML fehlt, kann es schwierig oder frustrierend sein, geeignete Szenarien und Diagramme zu entwickeln, was für die Anforderungsanalyse entscheidend ist.<br/>
+            <i>Ergebnisse:</i> Dokumentation spezifischer Anforderungen und ihrer Begründung; Dokumentation spezifischer Herausforderungen
+        </p>
+
+        <b>4. Sprachspezifikation (Language Specification)</b>
+        <p><i>Ziele:</i> Spezifikation und  Dokumentation der Konzepte und des Metamodells sind das Hauptziel dieser Phase.<br/>
+            <i>Mikroprozess:</i> Zuerst wird ein Glossar mit Schlüsselbegriffen erstellt, deren Eignung bewertet und anschließend ein Entwurf des Metamodells entwickelt, der verschiedene Designentscheidungen und Spezifikationsstile berücksichtigt.<br/>
+            <i>Rollen:</i> Sprachdesigner, Domänenexperte und Benutzer, optional ein Tool-Experte.<br/>
+            <i>Risiken:</i> Unerfahrene Sprachdesigner können Herausforderungen im Zusammenhang mit widersprüchlichen Anforderungen und der Abgrenzung von Sprache und Sprachanwendung übersehen, was zu unbefriedigenden Metamodellen führt.<br/>
+            <i>Ergebnisse:</i> Metamodell, vorzugsweise spezifiziert mit einem Metamodellierungs-Tool, das weitere Transformationen ermöglicht; umfassende Dokumentation
+        </p>
+
+        <b>5. Gestaltung der grafischen Notation (Design of Graphical Notation)</b>
+        <p><i>Ziele:</i> Die grafische Notation soll entworfen und dokumentiert werden.<br/>
+            <i>Mikroprozess:</i> Die Erstellung der grafischen Notation berücksichtigt existierende Gestaltungsrichtlinien und involviert oft einen professionellen Grafikdesigner zur Erstellung und iterativen Überarbeitung eines Entwurfs.<br/>
+            <i>Rollen:</i> Domänenexperte, Benutzer, Sprachdesigner, Tool-Experte und Grafikdesigner.<br/>
+            <i>Risiken:</i> Häufig fehlt den Teilnehmern spezifisches Fachwissen im Design grafischer Notationen, und Grafikdesigner verstehen möglicherweise den Zweck einer DSML nicht vollständig, was zu unbefriedigenden Ergebnissen führen kann.<br/>
+            <i>Ergebnisse:</i> Dokumentation der grafischen Notation, illustriert durch exemplarische Diagramme.
+        </p>
+
+        <b>6. Evaluierung und Verfeinerung (Evaluation and Refinement)</b>
+        <p><i>Ziele:</i> Eine systematische und nachvollziehbare Evaluierung soll erstellt und bei Bedarf das Tool überarbeitet werden.<br/>
+            <i>Mikroprozess:</i> Die DSML und das zugehörige Tool werden systematisch anhand generischer und spezifischer Anforderungen überprüft, oft durch diskursive Bewertung mit allen Beteiligten und unter Einbeziehung von Anwendungsfällen.<br/>
+            <i>Rollen:</i> Domänenexperte, Benutzer, Sprachdesigner und Tool-Experte.<br/>
+            <i>Risiken:</i> Die Evaluierung kann durch Voreingenommenheit und unterschiedliche Interessen beeinträchtigt werden, weshalb jede Bewertung mit einer überzeugenden Begründung untermauert werden sollte.<br/>
+            <i>Ergebnisse:</i> Evaluierungsbericht, überarbeitetes und genehmigtes Tool.
+        </p>
+
+    </div>
+    <div *ngIf="visible === 'aufgabe'">
+        <h2>Aufgabe</h2><br/>
+        <p>Im Folgenden findest du einen Text zum Entwicklungsprozess von DSML nach Frank mit einigen Lücken.
+            Fülle die Lücken mit den Nummern der passenden Textabschnitte. Ordne abschließend die Abbildungen der Mikroprozesse in die richtige Reihenfolge.</p><br/>
+
+        <p>Textabschnitte</p>
+        <ol>
+            <li>Das Ergebnis ist eine Dokumentation der grafischen Notation, anschaulich dargestellt durch Beispieldiagramme</li>
+            <li>Ein signifikantes Problem kann auftreten, wenn den Teilnehmern die Erfahrung mit DSML fehlt, was das Entwickeln geeigneter Szenarien und Diagramme erschwert, die jedoch für die Anforderungsanalyse entscheidend sind</li>
+            <li>Unerfahrene Sprachdesigner könnten widersprüchliche Anforderungen oder die Unterscheidung zwischen der Sprache und ihrer Anwendung übersehen, was zu einem unzureichenden Metamodell führen kann. Das resultierende Metamodell und eine umfassende Dokumentation sind die zentralen Resultate</li>
+            <li>Es geht darum, generische Anforderungen zu spezifizieren und umfassend zu dokumentieren</li>
+            <li>Ein wesentliches Risiko ist, dass die Bewertung durch Voreingenommenheit und Interessen beeinträchtigt werden kann, weshalb jede Einschätzung eine überzeugende Begründung erfordert. Die Ergebnisse umfassen einen Evaluierungsbericht und ein überarbeitetes sowie freigegebenes Tool</li>
+            <li>Das Kern-Ergebnis ist ein Katalog generischer Anforderungen, die jeweils hinsichtlich ihres Zwecks begründet und ihrer Relevanz charakterisiert sind</li>
+            <li>Das Hauptrisiko besteht darin, dass fehlende Informationen und unzureichendes Wissen zu einer falschen Eingrenzung des DSML-Umfangs oder zu einer verzerrten Einschätzung der Vorteile führen können</li>
+        </ol><br/>
+
+        <p>Die erste Phase „Clarification of Scope and Purpose“ zielt darauf ab, wesentliche Designziele zu beschreiben und ein Budget festzulegen. Wichtige Rollen spielen hierbei Manager, Business Analyst, Benutzer, Domänenexperten und Sprachdesigner. <input id="input1" type="number" min="1" max="7" style="width: 50px;">. Am Ende dieser Phase stehen ein vorläufiger Projektplan, ein Budget, die Zuordnung von Personal und eine Skizze der Langzeitperspektive.</p>
+        <div id="feedback1" class="alert" role="alert"></div>
+        <p>„Analysis of Generic Requirements“ ist die zweite Phase. <input id="input2" type="number" min="1" max="7" style="width: 50px;">. Dabei arbeiten Domänenexperten, Benutzer, Sprachdesigner und Tool-Experten Hand in Hand. Das größte Risiko ist, dass, wenn kein passender Katalog generischer Anforderungen existiert, deren Entwicklung mühsam sein kann und das Übersehen wichtiger Anforderungen birgt.<input id="input3" type="number" min="1" max="7" style="width: 50px;">.</p>
+        <div class="d-flex gap-2">
+            <div id="feedback2" class="alert" role="alert"></div>
+            <div id="feedback3" class="alert" role="alert"></div>
+        </div>
+        <p>Die dritte Phase „Analysis of Specific Requirements“ hat das Kernziel des Erarbeitens einer vollständigen Liste domänenspezifischer Anforderungen. Die involvierten Rollen umfassen Business Analysten, Domänenexperten, Sprachdesigner, Manager, Tool-Experten und Benutzer, wobei bei Bedarf auch Grafikdesigner hinzugezogen werden können. <input id="input4" type="number" min="1" max="7" style="width: 50px;">. Diese Phase erstellt eine Dokumentation der spezifischen Anforderungen samt Begründung und einer Auflistung spezifischer Herausforderungen.</p>
+        <div id="feedback4" class="alert" role="alert"></div>
+        <p>Die vierte Phase „Language Specification“ konzentriert sich auf die detaillierte Festlegung und Dokumentation des Metamodells sowie mögliche Einschränkungen. Die Hauptbeteiligten sind der Sprachdesigner, der Domänenexperte und der Benutzer, ergänzt um einen optionalen Tool-Experten. <input id="input5" type="number" min="1" max="7" style="width: 50px;">.</p>
+        <div id="feedback5" class="alert" role="alert"></div>
+        <p>Das primäre Ziel der fünften Phase „Design of Graphical Notation“ ist der Entwurf und die Dokumentation der visuellen Darstellung der DSML. Involviert sind Domänenexperten, Benutzer, Sprachdesigner, Tool-Experten und Grafikdesigner. Ein großes Risiko besteht darin, dass die meisten Teilnehmer keine spezielle Expertise im Design grafischer Notationen besitzen und Grafikdesigner den eigentlichen Zweck der DSML missverstehen könnten, was zu unbefriedigenden visuellen Ergebnissen führen kann. <input id="input6" type="number" min="1" max="7" style="width: 50px;">.</p>
+        <div id="feedback6" class="alert" role="alert"></div>
+        <p>Die Phase sechs „Evaluation and Refinement“ dient dazu, eine systematische und nachvollziehbare Bewertung der DSML zu erstellen und das zugehörige Tool bei Bedarf anzupassen. Die Schlüsselakteure sind der Domänenexperte, der Benutzer, der Sprachdesigner und der Tool-Experte. <input id="input7" type="number" min="1" max="7" style="width: 50px;">.</p>
+        <div id="feedback7" class="alert" role="alert"></div>
+
+        <button class="btn btn-primary" (click)="checkAnswers()">Prüfen</button><br/><br/>
+
+        <p><b>Abbildungen</b></p>
+        <ol>
+            <li><img src="assets/Phase4.png" alt="Abbildung 4" width="300px"></li>
+            <li><img src="assets/Phase1.png" alt="Abbildung 1" width="300px"></li>
+            <li><img src="assets/Phase6.png" alt="Abbildung 6" width="300px"></li>
+            <li><img src="assets/Phase3.png" alt="Abbildung 3" width="300px"></li>
+            <li><img src="assets/Phase5.png" alt="Abbildung 5" width="300px"></li>
+            <li><img src="assets/Phase2.png" alt="Abbildung 2" width="300px"></li>
+        </ol>
+
+        <p>Reihenfolge der Abbildungen (kommagetrennt): <input type="text"></p>
+        <div id="feedbackOrder" class="alert" role="alert"></div>
+        <button class="btn btn-primary" (click)="checkAnswer()">Prüfen</button>
+
+    </div>
+</div>

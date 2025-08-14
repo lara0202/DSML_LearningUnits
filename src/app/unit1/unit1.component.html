@@ -1,0 +1,168 @@
+<ul class="nav nav-pills pt-3 justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'lernziele'" [class.active]="visible === 'lernziele'">Lernziele</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'grundlagen'" [class.active]="visible === 'grundlagen'">Theoretische Grundlagen</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'aufgabe'" [class.active]="visible === 'aufgabe'">Aufgabe</a>
+    </li>
+</ul>
+
+<div class="container p-5">
+    <div *ngIf="visible === 'lernziele'">
+        <h2>Lernziele</h2><br/>
+        <p>Die Studierenden können...</p>
+        <ul>
+            <li>DSML, GPML, DSM definieren</li>
+            <li>die Vorteile von DSMLs beschreiben</li>
+            <li>den Unterschied zwischen DSMLs und GPMLs erklären</li>
+            <li>die drei Hauptkomponenten einer DSM bestimmen und beschreiben</li>
+            <li>mögliche Herausforderungen bei der Entwicklung einer DSML diskutieren und erklären</li>
+        </ul>
+        <p>Viel Erfolg!</p>
+    </div>
+
+    <div *ngIf="visible === 'grundlagen'">
+        <h2>Theoretische Grundlagen</h2><br/>
+
+        <p><b>Was sind DSMLs?</b></p>
+        <p>Eine Domain Specific Modeling Language (DSML) ist eine Modellierungssprache, die speziell für eine bestimmte Anwendungsdomäne entwickelt wurde. Im Gegensatz zu General Purpose Modeling Languages (GPMLs) wie der bekannten Unified Modeling Language UML ist eine DSML nicht allgemein einsetzbar, sondern auf die Begriffe, Regeln und Strukturen einer spezifischen Fachdomäne zugeschnitten. Ziel einer DSML ist es, komplexe Sachverhalte in einem bestimmten Anwendungsbereich präzise und verständlich abzubilden.</p>
+        <p>Es kann festgehalten werden:<br/>
+        <b>DSML</b> = speziell für eine bestimmte Anwendungsdomäne entwickelte Modellierungssprache, zugeschnitten auf Begriffe, Regeln und Strukturen dieser Domäne.<br/>
+        <b>GPML</b> = universell einsetzbare Modellierungssprache, nicht auf eine bestimmte Domäne beschränkt</p>
+        <p>Während GPMLs bewusst generisch gehalten sind, um möglichst viele Anwendungsfälle zu unterstützen, fokussieren sich DSMLs ausschließlich auf die für ihre Zielgruppe relevanten Konzepte. Ein Beispiel dafür ist eine fiktive Sprache für Smart Home Systeme. Sie wird entwickelt, um Geräte wie Sensoren, Lichtschalter und Thermostate effizient zu konfigurieren, ohne dass der Benutzer Programmiersprachenkenntnisse benötigt.</p>
+        <p>Schritt für Schritt betrachtet bedeutet dies:<br/>
+        Zuerst werden die relevanten Konzepte der Domäne erfasst, zum Beispiel: „Sensor“, „Lampe“ und „Zeitplan“. Anschließend werden diese Konzepte so modelliert, dass sie von einem Codegenerator in Steuerungslogik übersetzt werden können. Am Ende kann der Benutzer beispielsweise in einem Modell einfach angeben: „Schalte die Lampe im Wohnzimmer um 19 Uhr ein, wenn der Lichtsensor unter 200 Lux misst“ und der Generator erzeugt daraus automatisch den notwendigen Programmcode für die Smart Home Plattform.</p>
+        <p>Diese Nähe zur realen Domäne ermöglicht eine direktere Kommunikation zwischen Modellerstellern und Domänenexperten, da die genutzten Konzepte mit der gewohnten Fachsprache übereinstimmen. Der Vorteil im Entwicklungsprozess liegt darin, dass weniger Übersetzungsschritte von Fachwissen zu Programmcode notwendig sind, was Missverständnisse reduziert und Entwicklungszeit spart.</p>
+
+        <p><b>Vorteile von DSMLs gegenüber GPMLs</b></p>
+        <p>DSMLs bieten gegenüber herkömmlichen Modellierungssprachen mehrere bedeutende Vorteile. Die verwendeten Modellierungskonzepte stammen direkt aus der jeweiligen Anwendungsdomäne zum Beispiel: „Sensor“, „Schalter“ oder „Lichtplan“  und müssen nicht erst in abstrakte Programmierkonzepte wie „Klassen“ oder „Methoden“ übersetzt werden. Dadurch wird nicht nur die Modellierung effizienter, sondern auch die Kommunikation zwischen Fachexperten und Entwicklern erleichtert.</p>
+        <p>Ein weiterer Vorteil besteht in der Möglichkeit der automatischen Codegenerierung. Da die Modelle in einer DSML bereits domänenspezifisch und vollständig strukturiert sind, können daraus ohne manuelles Zutun ausführbare Softwarekomponenten generiert werden. Dies reduziert nicht nur den Programmieraufwand, sondern auch das Fehlerpotenzial.</p>
+        <p>Zusätzlich verbessert sich die Produktivität und Qualität der Softwareentwicklung. Da in der Sprache selbst bereits domänenspezifische Korrektheitsregeln integriert sind, lassen sich fehlerhafte oder inkonsistente Spezifikationen frühzeitig vermeiden. Gleichzeitig sinkt die Einarbeitungszeit für neue Entwicklerinnen und Entwickler, da keine zusätzliche Lernkurve für allgemeine Modellierungssprachen wie UML notwendig ist. Stattdessen arbeiten sie direkt mit den vertrauten Konzepten ihrer Fachdomäne.</p>
+        <p>Ein letzter wichtiger Aspekt ist die Verständlichkeit und Konsistenz der Modelle. Viele DSMLs verfügen über eine eigene entwickelte grafische Notation, die auf die Wahrnehmung und das Vorwissen der Benutzer abgestimmt ist. Dies erleichtert nicht nur die Interpretation der Modelle, sondern fördert auch die Zusammenarbeit zwischen technischen und nicht-technischen Beteiligten des Projekts.</p>
+
+        <p><b>Hauptkomponenten einer DSM-Lösung</b></p>
+        <p>Eine vollständige Domain-Specific Modeling (DSM)-Lösung besteht in der Regel aus drei wesentlichen Komponenten. Die erste Komponente ist die domänenspezifische Sprache selbst. Sie definiert, welche Konzepte, Relationen und Regeln in der jeweiligen Domäne modelliert werden können. Damit legt sie das Vokabular und die Syntax der Modellierung fest und sorgt für eine standardisierte Beschreibung der Systemeigenschaften.</p>
+        <p>Die zweite Komponente ist der Codegenerator. Dieser übersetzt die in der DSML erstellten Modelle automatisch in ausführbaren Quellcode, der häufig in gängigen Programmiersprachen wie Java, Python oder C#. Auf diese Weise kann aus einem domänenspezifischen Modell ein funktionierendes Softwaresystem entstehen, ohne dass die Modellierer den generierten Code selbst schreiben oder verändern müssen.</p>
+        <p>Die dritte Komponente ist das sogenannte Domänen-Framework. Es stellt die technische Infrastruktur bereit, auf der der generierte Code ausgeführt wird. Dazu gehören beispielsweise Programmbibliotheken, Schnittstellen zu Datenbanken, Kommunikationsprotokolle oder APIs zur Ansteuerung von Hardwarekomponenten. Der Entwickler oder Modellierer kann sich so vollständig auf die Modellierung konzentrieren, während die technische Umsetzung im Hintergrund durch das Framework und den Generator erfolgt.</p>
+
+        <p><b>Herausforderungen beim Design von DSMLs</b></p>
+        <p>Trotz der zahlreichen Vorteile ist die Entwicklung einer DSML eine komplexe Aufgabe. Eine der größten Herausforderungen besteht darin, eine geeignete Balance zwischen Spezifität und Wiederverwendbarkeit zu finden. Je stärker eine Sprache auf eine bestimmte Domäne zugeschnitten ist, desto präziser lassen sich Systeme innerhalb dieser Domäne modellieren. Allerdings sinkt mit zunehmender Spezifität die Möglichkeit, die Sprache in anderen Projekten oder bei veränderten Anforderungen zu nutzen. Zu enge Festlegungen führen oft dazu, dass die Sprache schon bei kleinen Änderungen der Fachregeln oder Technologien angepasst oder komplett neu entworfen werden muss.</p>
+        <p>Demgegenüber steht der Wunsch nach einer möglichst universellen Sprache, die über mehrere Szenarien hinweg einsetzbar ist. Eine solche Sprache benötigt jedoch allgemeinere Begriffe und eine höhere Abstraktion, was häufig zu einem Verlust an Ausdrucksstärke und Genauigkeit führt.</p>
+        <p>Darüber hinaus fehlt es in der Praxis oft an methodischer Unterstützung für den Designprozess einer DSML. Welche Konzepte aufgenommen werden, wie sie sich strukturell abbilden lassen und wie die semantischen Regeln zu formulieren sind, muss individuell erarbeitet werden. Dies erfordert sowohl tiefes Domänenwissen als auch Erfahrung in der Modellierung. Der Entwurf einer DSML ist daher ein iterativer Prozess, in dem Annahmen geprüft, Modelle überarbeitet und Konzepte weiterentwickelt werden. All dies und die passenden Methoden lernt ihr in den weiteren Lerneinheiten.</p>
+    </div>
+
+    <div *ngIf="visible === 'aufgabe'">
+        <h2>Aufgabe</h2><br/>
+
+        <p>1. Was ist die Definition von einer DSML?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe1" id="A1O1" value="A1O1">
+        <label class="form-check-label" for="A1O1">Eine Modellierungssprache, die speziell für eine bestimmte Anwendungsdomäne entwickelt wurde.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe1" id="A1O2" value="A1O2">
+        <label class="form-check-label" for="A1O2">Eine Programmiersprache, die in jedem Bereich der Softwareentwicklung einsetzbar ist.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe1" id="A1O3" value="A1O3">
+        <label class="form-check-label" for="A1O3">Ein Datenbankmodell, das für alle Branchen gleich ist.</label>
+        </div>
+        <div id="feedback1" class="alert" role="alert"></div>
+
+        <p>2. Was ist die Definition von einer GPML?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe2" id="A2O1" value="A2O1">
+        <label class="form-check-label" for="A2O1">Eine Modellierungssprache, die für eine spezifische Fachdomäne entwickelt wurde.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe2" id="A2O2" value="A2O2">
+        <label class="form-check-label" for="A2O2">Eine universell einsetzbare Modellierungssprache, die für viele Anwendungsbereiche genutzt werden kann</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe2" id="A2O3" value="A2O3">
+        <label class="form-check-label" for="A2O3">Ein Framework, das automatisch Code aus domänenspezifischen Modellen generiert.</label>
+        </div>
+        <div id="feedback2" class="alert" role="alert"></div>
+
+        <p>3. Benenne die Vorteile einer DSML im Gegensatz zu einer GPML</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe3" id="A3O1" value="A3O1">
+        <label class="form-check-label" for="A3O1">Direkte Abbildung von Fachbegriffen der Domäne, geringere Einarbeitungszeit für Fachexperten, automatische Codegenerierung.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe3" id="A3O2" value="A3O2">
+        <label class="form-check-label" for="A3O2">Kann jede beliebige Programmiersprache vollständig ersetzen, benötigt keine grafische Notation.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe3" id="A3O3" value="A3O3">
+        <label class="form-check-label" for="A3O3">Erfordert grundsätzlich mehr Abstraktion als GPMLs und ist für jede Domäne universell einsetzbar.</label>
+        </div>
+        <div id="feedback3" class="alert" role="alert"></div>
+
+        <p>4. Was sind wesentliche Unterschiede zwischen einer DSML und einer GPML?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe4" id="A4O1" value="A4O1">
+        <label class="form-check-label" for="A4O1">DSML ist auf eine bestimmte Domäne spezialisiert, GPML ist universell einsetzbar.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe4" id="A4O2" value="A4O2">
+        <label class="form-check-label" for="A4O2">DSML wird nur grafisch dargestellt, GPML nur textuell.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe4" id="A4O3" value="A4O3">
+        <label class="form-check-label" for="A4O3">DSML benötigt keine Software-Entwicklungsumgebung, GPML schon.</label>
+        </div>
+        <div id="feedback4" class="alert" role="alert"></div>
+
+        <p>5. Was ist keine der drei Hauptkomponenten einer DSM?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe5" id="A5O1" value="A5O1">
+        <label class="form-check-label" for="A5O1">Die domänenspezifische Sprache</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe5" id="A5O2" value="A5O2">
+        <label class="form-check-label" for="A5O2">Eine Benutzeroberfläche zur Codeeingabe</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe5" id="A5O3" value="A5O3">
+        <label class="form-check-label" for="A5O3">Der Codegenerator</label>
+        </div>
+        <div id="feedback5" class="alert" role="alert"></div>
+
+        <p>6. GPMLs haben eine höhere Abstraktion als DSMLs</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe6" id="A6O1" value="A6O1">
+        <label class="form-check-label" for="A6O1">Falsch</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe6" id="A6O2" value="A6O2">
+        <label class="form-check-label" for="A6O2">Richtig</label>
+        </div>
+        <div id="feedback6" class="alert" role="alert"></div>
+
+        <p>7. Was sind typische Herausforderungen bei der Entwicklung einer DSML?</p>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe7" id="A7O1" value="A7O1">
+        <label class="form-check-label" for="A7O1">Die richtige Balance zwischen Spezifität und Wiederverwendbarkeit finden.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe7" id="A7O2" value="A7O2">
+        <label class="form-check-label" for="A7O2">Das Kompilieren von Programmen in mehreren Programmiersprachen gleichzeitig.</label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="Aufgabe7" id="A7O3" value="A7O3">
+        <label class="form-check-label" for="A7O3">Das Erstellen einer Datenbank für generierte Codes.</label>
+        </div>
+        <div id="feedback7" class="alert" role="alert"></div>
+
+        <button class="btn btn-primary" (click)="checkTest()">Prüfen</button><br/><br/>
+
+        <p>Warum kann eine zu hohe Domänenspezifik dazu führen, dass eine DSML ihren praktischen Nutzen verliert oder in der Zukunft nur noch eingeschränkt einsetzbar ist?</p>
+        <textarea class="form-control" rows="6"></textarea><br/>
+        <button class="btn btn-primary" (click)="showSolution()">Referenzlösung</button><br/><br/>
+        <p class="invisible" id="solutionText">Eine zu hohe Domänenspezifik kann dazu führen, dass eine DSML nur noch in einem sehr engen Anwendungsbereich funktioniert und dadurch in anderen Szenarien nicht mehr flexibel einsetzbar ist. Sie wird schwer wiederverwendbar, schnell veraltet, wenn sich die Domäne verändert, und rechtfertigt den Entwicklungsaufwand nicht mehr, da der Nutzen stark begrenzt ist.</p>
+    </div>
+</div>

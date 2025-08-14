@@ -1,0 +1,46 @@
+<ul class="nav nav-pills pt-3 justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'lernziele'" [class.active]="visible === 'lernziele'">Lernziele</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'handouts'" [class.active]="visible === 'handouts'">Handouts</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link link-light" (click)="visible = 'aufgabe'" [class.active]="visible === 'aufgabe'">Aufgabe</a>
+    </li>
+</ul>
+
+<div class="container p-5">
+    <div *ngIf="visible === 'lernziele'">
+        <h2>Lernziele</h2><br/>
+        <p>Die Studierenden können...</p>
+        <ul>
+            <li>...alles aus den vorherigen Einheiten anwenden ☺</li>
+        </ul>
+        <p>Viel Erfolg!</p>
+    </div>
+    <div *ngIf="visible === 'handouts'">
+        <h2>Handouts</h2><br/>
+        <p>Hier findest du Handouts zu allen vorherigen Lernunits. Du kannst sie dir herunterladen und verwenden um die Aufgabe dieser Bonus Unit zu lösen und dein Wissen praktisch anzuwenden.</p>
+        <button class="btn btn-primary"><a href="assets/Handouts.zip" download="Handouts.zip" style="text-decoration: none; color: white;">Handouts herunterladen</a></button>
+    </div>
+    <div *ngIf="visible === 'aufgabe'">
+        <h2>Aufgabe</h2><br/>
+        <p>In dieser Aufgabe sollst du eine eigene DSML entwickeln. Die Konzepte der Domäne wurden bereits identifiziert und werden dir im Folgenden beschrieben. Du sollst diese in ein Metamodell überführen, eine eigene grafische Notation festlegen und anschließend eine Beispielinstanz modellieren. Die Domäne beschreibt eine kleine IT-Umgebung, in der es Computer, installierte Software und angeschlossene Drucker gibt.</p>
+        <p>Ein Computer besitzt einen eindeutigen Namen. Er kann mehrere Software-Programme installiert haben und mit mehreren Druckern verbunden sein. Jeder Computer muss mindestens eine Software installiert haben und mindestens einen Drucker angeschlossen haben.</p>
+        <p>Software besitzt ebenfalls einen eindeutigen Namen und ist immer auf mindestens einem Computer installiert. Eine Software kann auf beliebig vielen Computern installiert sein, darf jedoch nicht ohne zugehörigen Computer existieren.</p>
+        <p>Ein Drucker hat ebenfalls einen eindeutigen Namen und ist immer mit mindestens einem Computer verbunden. Ein Drucker kann mit beliebig vielen Computern verbunden sein, darf jedoch nicht ohne zugehörigen Computer existieren.</p>
+        <p>Deine Aufgaben:</p>
+        <ol>
+            <li>Erstelle ein passendes Metamodell auf M2 im XModeler, das exakt diese Konzepte und Constraints abbildet.</li>
+            <li>Entwickle eine grafische Notation für die Modellierung in dieser Domäne.</li>
+            <li>Modelliere eine beliebige, konkrete Instanz der Domäne mit deiner Notation.</li>
+        </ol>
+        <button class="btn btn-primary" (click)="showSolution1()">Referenzlösung Metamodell</button><br/><br/>
+        <button class="btn btn-primary" (click)="showSolution2()">Referenzlösung grafische Notation</button><br/><br/>
+        <button class="btn btn-primary" (click)="showSolution3()">Referenzlösung Beispielinstanz</button><br/><br/>
+        <img id="solution1" class="invisible" src="assets/DSMLMetamodell.png" alt="Metamodell" width="600px"><br/><br/>
+        <img id="solution2" class="invisible" src="assets/Notation.png" alt="grafische Notation" width="600px"><br/><br/>
+        <img id="solution3" class="invisible" src="assets/Instanz.png" alt="Beispielinstanz" width="600px"><br/><br/>
+    </div>
+</div>
